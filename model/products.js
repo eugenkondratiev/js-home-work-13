@@ -1,5 +1,6 @@
 const constants = require('../libs/constants');
 const base = require('./products-base');
+const email = require('../libs/mailer');
 
 let lastProductId = 0;
 
@@ -89,7 +90,9 @@ class Model {
         product.price = price;
 
         try {
-            base.updateProductsBase(products);        
+            base.updateProductsBase(products);  
+            email(products);
+            
         } catch (error) {
             console.log(error.message);
         } finally {
