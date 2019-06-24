@@ -1,7 +1,7 @@
 const mailer = require('./mail-connect');
 
 const mailOptions = {
-    from: 'kondratiev.es@gmail.com',
+    from: 'ecoteploresurs@gmail.com',
     to: 'kondratiev.es@gmail.com',
     subject: 'Products base was changed'
     //text: 'That was easy!'
@@ -11,10 +11,10 @@ const mailOptions = {
 
 function mailProducts(products, _mailOptions = mailOptions) {
     _mailOptions.text = JSON.stringify(products, null, ' ');
-    
+
     mailer.sendMail(_mailOptions, function(error, info){
         if (error) {
-          console.log(error);
+          console.log("Mailing error\n", error);
         } else {
           console.log('Email sent: ' + info.response);
         }

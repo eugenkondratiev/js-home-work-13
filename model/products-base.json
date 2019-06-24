@@ -14,16 +14,21 @@
   "price": 22
  },
  {
-  "id": 3,
-  "name": "peach",
-  "unit": "kg",
-  "quatity": 15,
-  "price": 60
- },
- {
   "id": 4,
   "name": "pineapple",
   "quantity": 15,
-  "price": 88
+  "price": 77
+ },
+ {
+  "id": 5,
+  "name": "pear",
+  "quantity": 20,
+  "price": 85
+ },
+ {
+  "id": 6,
+  "name": "melon",
+  "quantity": 40,
+  "price": 44
  }
 ]

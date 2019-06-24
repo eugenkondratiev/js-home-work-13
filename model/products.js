@@ -36,7 +36,9 @@ class Model {
         base.readProductsBase()
             .then( data => {
                 JSON.parse(data).forEach(element => {
-                    ++lastProductId;
+                    //++lastProductId;
+                    //can not use incremen because of delete method dont shift IDs
+                    lastProductId = parseInt(element.id);
                     products.push(element);
                 });;
 
@@ -71,6 +73,7 @@ class Model {
         
         try {
             base.updateProductsBase(products);        
+            email(products);
         } catch (error) {
             console.log(error.message);
         } finally {
@@ -92,7 +95,7 @@ class Model {
         try {
             base.updateProductsBase(products);  
             email(products);
-            
+
         } catch (error) {
             console.log(error.message);
         } finally {
@@ -109,6 +112,7 @@ class Model {
         products.splice(index, 1);
         try {
             base.updateProductsBase(products);        
+            email(products);
         } catch (error) {
             console.log(error.message);
         } finally {

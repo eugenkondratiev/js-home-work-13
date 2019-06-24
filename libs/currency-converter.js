@@ -18,8 +18,14 @@ function getUsdUah(currencyApiURL) {
  //===================================================
 return new Promise((resolve, reject) => {
     request(currencyApiURL, (_res, _req, body) => {
-        const uah_usd = JSON.parse(body).find( el => el.ccy === "USD" && el.base_ccy === "UAH"); 
-        resolve(+uah_usd.sale);
+        try {
+            const uah_usd = JSON.parse(body).find( el => el.ccy === "USD" && el.base_ccy === "UAH"); 
+            resolve(+uah_usd.sale);            
+        } catch (error) {
+            console.log("Connection problem\n", error.message);
+            reject();
+        }
+
             
     });
 });
